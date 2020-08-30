@@ -15,7 +15,7 @@ const { reducer, actions } = createSlice({
       return state;
     },
     UPDATE_TODO : (state : todoNodeStructure[], action : {payload : {id : number, title : string}}) => {
-      state[action.payload.id].title = action.payload.title
+      state[action.payload.id - 1].title = action.payload.title
       return state;
     },
     DELETE_TODO : state => state

@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './todoSlice';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 export type RootState = ReturnType<typeof store.getState>
 
 const store = configureStore({
