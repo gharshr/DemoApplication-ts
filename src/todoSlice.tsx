@@ -8,35 +8,35 @@ export interface todoNodeStructure {
 
 const { reducer, actions } = createSlice({
   name : 'todos',
-  initialState : [{id : 1, title : 'Checkout the Storage', completed : false}, {id: 2, title : 'Check the passwords & Patternise', completed : true}] as todoNodeStructure[],
+  initialState : { todos: [{id : 1, title : 'Checkout the Storage', completed : false}, {id: 2, title : 'Check the passwords & Patternise', completed : true}], lastTodoId : 2} as { todos : todoNodeStructure[], lastTodoId : number },
   reducers : {
-    ADD_TODO : (state : todoNodeStructure[], action : {payload : todoNodeStructure}) => { 
-      state.push(action.payload);
+    ADD_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : {payload : todoNodeStructure}) => { 
+      state.todos.push(action.payload);
       return state;
     },
-    UPDATE_TODO : (state : todoNodeStructure[], action : {payload : {id : number, title : string}}) => {
-      state[action.payload.id - 1].title = action.payload.title
+    UPDATE_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : {payload : {id : number, title : string}}) => {
+      state.todos[state.todos.findIndex(todo => todo.id === action.payload.id)].title = action.payload.title
       return state;
     },
-    DELETE_TODO : (state : todoNodeStructure[], action : { payload : { id : number}}) => { 
-      state.splice(state.findIndex(todo => todo.id === action.payload.id),1);
+    DELETE_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : { payload : { id : number}}) => { 
+      state.todos.splice(state.todos.findIndex(todo => todo.id === action.payload.id),1);
       return state;
     },
-    ACTIVE_ALL : (state : todoNodeStructure[]) => { 
-      state.forEach(todo => todo.completed = false);
+    ACTIVE_ALL : (state : { todos : todoNodeStructure[], lastTodoId : number }) => { 
+      state.todos.forEach(todo => todo.completed = false);
       return state;
     },
-    COMPLETE_ALL : (state : todoNodeStructure[]) => { 
-      state.forEach(todo => todo.completed = true);
+    COMPLETE_ALL : (state : { todos : todoNodeStructure[], lastTodoId : number }) => { 
+      state.todos.forEach(todo => todo.completed = true);
       return state;
     },
-    DELETE_ALL : (state : todoNodeStructure[]) => { 
-      state.splice(0, state.length)
+    DELETE_ALL : (state : { todos : todoNodeStructure[], lastTodoId : number }) => { 
+      state.todos.splice(0, state.todos.length)
       return state;
     },
-    MARK_AS_COMPLETE : (state : todoNodeStructure[], action : { payload : { id : number}}) => {
-      var todoIndex: number = state.findIndex(todo => todo.id === action.payload.id);
-      state[todoIndex].completed = !state[todoIndex].completed;
+    MARK_AS_COMPLETE : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : { payload : { id : number}}) => {
+      var todoIndex: number = state.todos.findIndex(todo => todo.id === action.payload.id);
+      state.todos[todoIndex].completed = !state.todos[todoIndex].completed;
     }
   }
 })

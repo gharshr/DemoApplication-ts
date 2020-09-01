@@ -1,0 +1,440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React Components test with Jest App Component with Snapshot 1`] = `
+<div
+  className="container-fluid"
+>
+  <h1>
+    todos - 
+    <span
+      className="badge badge-info"
+    >
+      2
+    </span>
+  </h1>
+  <div
+    className="row"
+  >
+    <div
+      className="col-4"
+    >
+      <div
+        className="input-group"
+      >
+        <input
+          className="form-control"
+          disabled={false}
+          id="add_todo_input"
+          onChange={[Function]}
+          placeholder="What do you want to do?"
+          type="text"
+          value=""
+        />
+        <div
+          className="input-group-append"
+        >
+          <button
+            aria-label={null}
+            className="btn btn-primary btn-sm disabled"
+            disabled={true}
+            id="todo_add_button"
+            onClick={[Function]}
+            type="button"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col"
+    />
+  </div>
+  <ul
+    className="list-group"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-4"
+      >
+        <li
+          className="list-group-item"
+        >
+          <div
+            className="row row-cols-4"
+          >
+            <div
+              className="col-1"
+            >
+              <input
+                checked={false}
+                className=""
+                onChange={[Function]}
+                type="checkbox"
+              />
+            </div>
+            <div
+              className="col-7"
+            >
+              <b>
+                Checkout the Storage
+              </b>
+            </div>
+            <div
+              className="col-1 offset-md-1"
+            >
+              <button
+                aria-label={null}
+                className="btn btn-warning btn-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Edit
+              </button>
+            </div>
+            <div
+              className="col-1"
+            >
+              <button
+                aria-label={null}
+                className="btn btn-danger btn-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-4"
+      >
+        <li
+          className="list-group-item"
+        >
+          <div
+            className="row row-cols-4"
+          >
+            <div
+              className="col-1"
+            >
+              <input
+                checked={true}
+                className=""
+                onChange={[Function]}
+                type="checkbox"
+              />
+            </div>
+            <div
+              className="col-7"
+            >
+              <b>
+                Check the passwords & Patternise
+              </b>
+            </div>
+            <div
+              className="col-1 offset-md-1"
+            >
+              <button
+                aria-label={null}
+                className="btn btn-warning btn-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Edit
+              </button>
+            </div>
+            <div
+              className="col-1"
+            >
+              <button
+                aria-label={null}
+                className="btn btn-danger btn-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-4"
+      >
+        <div
+          className="input-group"
+        >
+          <input
+            className="form-control"
+            disabled={true}
+            id="edit_todo_input"
+            onChange={[Function]}
+            placeholder=""
+            type="text"
+            value=""
+          />
+          <div
+            className="input-group-append"
+          >
+            <button
+              aria-label={null}
+              className="btn btn-primary btn-sm disabled"
+              disabled={true}
+              id="edit_todo_button"
+              onClick={[Function]}
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col"
+      />
+    </div>
+  </ul>
+  <div
+    className="row"
+  >
+    <div
+      className="col-4"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="offset-md-3"
+        >
+          <button
+            aria-label={null}
+            className="btn btn-primary btn-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Add All
+          </button>
+        </div>
+        <div
+          className="offset-md-1"
+        >
+          <button
+            aria-label={null}
+            className="btn btn-success btn-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Complete All
+          </button>
+        </div>
+        <div
+          className="offset-md-1"
+        >
+          <button
+            aria-label={null}
+            className="btn btn-danger btn-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Delete All
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`React Components test with Jest Buttons Component with Snapshot 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-4"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="offset-md-3"
+      >
+        <button
+          aria-label={null}
+          className="btn btn-primary btn-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          Add All
+        </button>
+      </div>
+      <div
+        className="offset-md-1"
+      >
+        <button
+          aria-label={null}
+          className="btn btn-success btn-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          Complete All
+        </button>
+      </div>
+      <div
+        className="offset-md-1"
+      >
+        <button
+          aria-label={null}
+          className="btn btn-danger btn-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          Delete All
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`React Components test with Jest InputForTodo Component with Snapshot 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-4"
+  >
+    <div
+      className="input-group"
+    >
+      <input
+        className="form-control"
+        disabled={false}
+        id="edit_todo_input"
+        onChange={[Function]}
+        placeholder=""
+        type="text"
+        value=""
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          aria-label={null}
+          className="btn btn-primary btn-sm disabled"
+          disabled={true}
+          id="edit_todo_button"
+          onClick={[Function]}
+          type="button"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col"
+  />
+</div>
+`;
+
+exports[`React Components test with Jest TodoList Component with Snapshot 1`] = `
+<ul
+  className="list-group"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-4"
+    >
+      <div
+        className="input-group"
+      >
+        <input
+          className="form-control"
+          disabled={true}
+          id="edit_todo_input"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value=""
+        />
+        <div
+          className="input-group-append"
+        >
+          <button
+            aria-label={null}
+            className="btn btn-primary btn-sm disabled"
+            disabled={true}
+            id="edit_todo_button"
+            onClick={[Function]}
+            type="button"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col"
+    />
+  </div>
+</ul>
+`;
+
+exports[`React Components test with Jest TodoNode Component with Snapshot 1`] = `
+<div
+  className="row row-cols-4"
+>
+  <div
+    className="col-1"
+  >
+    <input
+      className=""
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </div>
+  <div
+    className="col-7"
+  >
+    <b />
+  </div>
+  <div
+    className="col-1 offset-md-1"
+  >
+    <button
+      aria-label={null}
+      className="btn btn-warning btn-sm"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </button>
+  </div>
+  <div
+    className="col-1"
+  >
+    <button
+      aria-label={null}
+      className="btn btn-danger btn-sm"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
