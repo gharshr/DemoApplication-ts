@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
-import App from './App';
+import { App } from './App';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import InputForTodo from './InputForTodo';
@@ -10,7 +10,7 @@ import TodoNode from './TodoNode';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './todoSlice'
-import Buttons from './Buttons';
+import { Buttons } from './Buttons';
 
 const store = configureStore({
   reducer
@@ -20,30 +20,35 @@ configure({ adapter: new Adapter() });
 
 describe('React component test with Enzyme', () => {
   it('App renders without crashing', () => {
-     shallow(<Provider store={store}><App /></Provider>);
+    const wrapper = shallow(<App todos={[]}/>);
+    console.log(wrapper.debug());
   });
 
   it('InputForTodo renders without crashing', () => {
-    shallow(<Provider store={store}><InputForTodo/></Provider>);
+    const wrapper = shallow(<Provider store={store}><InputForTodo/></Provider>);
+    console.log(wrapper.debug());
   });
 
   it('TodoList renders without crashing', () => {
-    shallow(<TodoList todos={[]}/>);
+    const wrapper = shallow(<TodoList todos={[]}/>);
+    console.log(wrapper.debug());
   });
 
   it('TodoNode renders without crashing', () => {
-    shallow(<Provider store={store}><TodoNode/></Provider>);
+    const wrapper = shallow(<Provider store={store}><TodoNode/></Provider>);
+    console.log(wrapper.debug());
   });
 
   it('Buttons renders without crashing', () => {
-    shallow(<Provider store={store}><Buttons/></Provider>);
+    const wrapper = shallow(<Buttons/>);
+    console.log(wrapper.getElements());
   });
 });
 
 describe('React Components test with Jest', () => {
   test('App Component with Snapshot', () => {
     const component = renderer.create(
-      <Provider store={store}><App /></Provider>
+      <Provider store={store}><App todos={[]}/></Provider>
     );
   
     let tree = component.toJSON();

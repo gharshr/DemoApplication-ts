@@ -9,7 +9,7 @@ import { Button, Input, Col, Row } from 'reactstrap'
 // }
 
 const TodoNode = React.memo(function TodoNode(props : any ) {
-    console.log(props)
+    // console.log(props)
     // const [completed,updateStatus] = useState(props.completed);
     return (
         <Row xs="4">

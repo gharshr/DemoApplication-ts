@@ -6,8 +6,9 @@ import Buttons from './Buttons'
 import './App.scss';
 import { Container, Badge } from 'reactstrap'
 import InputForTodo from './InputForTodo';
+import { todoNodeStructure } from './todoSlice';
 
-function App(props : any) {
+export function App(props : { todos : todoNodeStructure[]}) {
   return (
     <Container fluid>
       <h1>todos - <Badge color="info">{props.todos.length}</Badge></h1>

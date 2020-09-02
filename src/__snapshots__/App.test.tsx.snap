@@ -9,7 +9,7 @@ exports[`React Components test with Jest App Component with Snapshot 1`] = `
     <span
       className="badge badge-info"
     >
-      2
+      0
     </span>
   </h1>
   <div
@@ -53,120 +53,6 @@ exports[`React Components test with Jest App Component with Snapshot 1`] = `
   <ul
     className="list-group"
   >
-    <div
-      className="row"
-    >
-      <div
-        className="col-4"
-      >
-        <li
-          className="list-group-item"
-        >
-          <div
-            className="row row-cols-4"
-          >
-            <div
-              className="col-1"
-            >
-              <input
-                checked={false}
-                className=""
-                onChange={[Function]}
-                type="checkbox"
-              />
-            </div>
-            <div
-              className="col-7"
-            >
-              <b>
-                Checkout the Storage
-              </b>
-            </div>
-            <div
-              className="col-1 offset-md-1"
-            >
-              <button
-                aria-label={null}
-                className="btn btn-warning btn-sm"
-                onClick={[Function]}
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-            <div
-              className="col-1"
-            >
-              <button
-                aria-label={null}
-                className="btn btn-danger btn-sm"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </li>
-      </div>
-    </div>
-    <div
-      className="row"
-    >
-      <div
-        className="col-4"
-      >
-        <li
-          className="list-group-item"
-        >
-          <div
-            className="row row-cols-4"
-          >
-            <div
-              className="col-1"
-            >
-              <input
-                checked={true}
-                className=""
-                onChange={[Function]}
-                type="checkbox"
-              />
-            </div>
-            <div
-              className="col-7"
-            >
-              <b>
-                Check the passwords & Patternise
-              </b>
-            </div>
-            <div
-              className="col-1 offset-md-1"
-            >
-              <button
-                aria-label={null}
-                className="btn btn-warning btn-sm"
-                onClick={[Function]}
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-            <div
-              className="col-1"
-            >
-              <button
-                aria-label={null}
-                className="btn btn-danger btn-sm"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </li>
-      </div>
-    </div>
     <div
       className="row"
     >

@@ -5,7 +5,6 @@ import { ADD_TODO, UPDATE_TODO, todoNodeStructure} from './todoSlice';
 import { RootState } from '.';
 
 const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
-    console.log(props.todos.find((todo : todoNodeStructure) => todo.id === props.id)?.title === props.editedTitle)
     const [toDoTitle, updateToDoTitle] = useState(props.editedTitle ? props.editedTitle : '');
     const [alertToDo, toggleToDoAlertVisibility] = useState(false);
 
