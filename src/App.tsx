@@ -10,6 +10,9 @@ import { todoNodeStructure } from './todoSlice';
 
 export function App(props : { todos : todoNodeStructure[]}) {
   return (
+    // <div>
+    //   <h1>Hello People<p id="nine">This is just a demo test</p></h1>
+    // </div>
     <Container fluid>
       <h1>todos - <Badge color="info">{props.todos.length}</Badge></h1>
       <InputForTodo todos={props.todos} type="ADD"></InputForTodo>

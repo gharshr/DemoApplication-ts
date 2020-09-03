@@ -4,6 +4,7 @@ import { ACTIVE_ALL,COMPLETE_ALL,DELETE_ALL } from './todoSlice';
 import { connect } from 'react-redux'
 
 export const Buttons = React.memo(function Buttons(props : any) {
+  console.log(props)
   return (
     <Row>
       <Col xs="4">
