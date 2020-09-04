@@ -8,7 +8,7 @@ import { Container, Badge } from 'reactstrap'
 import InputForTodo from './InputForTodo';
 import { todoNodeStructure } from './todoSlice';
 
-export function App(props : { todos : todoNodeStructure[]}) {
+export function App(props : { todos : todoNodeStructure[] } = { todos : []}) {
   return (
     // <div>
     //   <h1>Hello People<p id="nine">This is just a demo test</p></h1>

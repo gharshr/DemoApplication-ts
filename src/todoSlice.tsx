@@ -34,7 +34,7 @@ const { reducer, actions } = createSlice({
       state.todos.splice(0, state.todos.length)
       return state;
     },
-    MARK_AS_COMPLETE : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : { payload : { id : number}}) => {
+    TOGGLE_COMPLETED : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : { payload : { id : number}}) => {
       var todoIndex: number = state.todos.findIndex(todo => todo.id === action.payload.id);
       state.todos[todoIndex].completed = !state.todos[todoIndex].completed;
     }
@@ -42,4 +42,4 @@ const { reducer, actions } = createSlice({
 })
 
 export default reducer;
-export const { ADD_TODO, DELETE_TODO, UPDATE_TODO, ACTIVE_ALL, MARK_AS_COMPLETE, DELETE_ALL, COMPLETE_ALL } = actions; 
+export const { ADD_TODO, DELETE_TODO, UPDATE_TODO, ACTIVE_ALL, TOGGLE_COMPLETED, DELETE_ALL, COMPLETE_ALL } = actions; 

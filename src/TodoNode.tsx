@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { DELETE_TODO, MARK_AS_COMPLETE } from './todoSlice';
+import { DELETE_TODO, TOGGLE_COMPLETED } from './todoSlice';
 import { Button, Input, Col, Row } from 'reactstrap'
 
 // interface props extends todoNodeStructure {
@@ -8,13 +8,13 @@ import { Button, Input, Col, Row } from 'reactstrap'
 //     updateId : any,
 // }
 
-const TodoNode = React.memo(function TodoNode(props : any ) {
+export const TodoNode = React.memo(function TodoNode(props : any ) {
     // console.log(props)
     // const [completed,updateStatus] = useState(props.completed);
     return (
         <Row xs="4">
             <Col xs="1">
-                <Input addon type="checkbox" checked={props.completed} onChange={() => props.MARK_AS_COMPLETE({id : props.id})}/>
+                <Input addon type="checkbox" checked={props.completed} onChange={() => props.TOGGLE_COMPLETED({id : props.id})}/>
             </Col>
             <Col xs="7"><b>{props.title}</b></Col>
             <Col md={{offset : 1}} xs="1">
@@ -27,6 +27,6 @@ const TodoNode = React.memo(function TodoNode(props : any ) {
     )
 })
 
-const mapDispatchToProps = { DELETE_TODO, MARK_AS_COMPLETE }
+const mapDispatchToProps = { DELETE_TODO, TOGGLE_COMPLETED }
 
 export default connect(null,mapDispatchToProps)(TodoNode);
