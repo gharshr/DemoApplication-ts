@@ -21,13 +21,6 @@ const store = configureStore({
   reducer
 })
 
-const Foo = (props : { width : number, height : number} ) => (
-  <div>
-    <input name="width" value={props.width} />
-    <input name="height" value={props.height} />
-  </div>
-);
-
 configure({ adapter: new Adapter() });
 
 describe('React component test with Enzyme', () => {
