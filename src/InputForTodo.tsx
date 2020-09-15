@@ -8,34 +8,37 @@ import { title } from 'process';
 
 const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
 
-    const initialSelectedTodoState : todoNodeStructure = {id: NaN, title : props.editedTitle ? props.editedTitle : '', completed : false};
-    const [toDoTitle, updateToDoTitle] = useState(props.editedTitle ? props.editedTitle : '');
+    const initialSelectedTodoState : todoNodeStructure = {id: props.id ? props.id : NaN, title : props.editedTitle ? props.editedTitle : '', completed : false};
+    // const [toDoTitle, updateToDoTitle] = useState(props.editedTitle ? props.editedTitle : '');
     const [alertToDo, toggleToDoAlertVisibility] = useState(false);
     const [selectedTodo, updateSelectedTodo] = useState(initialSelectedTodoState)
     const [selectedTodoNewOrNot, updateSelectedTodoNewOrNot] = useState(false)
 
-    console.log(toDoTitle)
+    // console.log(toDoTitle)
 
     useEffect(() => {
-        updateToDoTitle(props.editedTitle ? props.editedTitle : '');
-        updateSelectedTodo(selectedTodo => { return {...selectedTodo,title : props.editedTitle ? props.editedTitle : ''}})
-        console.log(toDoTitle)
-    },[props.editedTitle])
+        console.log(props)
+        // updateToDoTitle(props.editedTitle ? props.editedTitle : '');
+        updateSelectedTodo(selectedTodo => { return {...selectedTodo,id: props.id , title : props.editedTitle ? props.editedTitle : ''}})
+        // console.log(toDoTitle)
+    },[props.editedTitle, props.id])
 
     useEffect(() => {
-        if(selectedTodo.title.length >= 5) {
+        if(selectedTodoNewOrNot === true){
             if(props.type == "ADD") {
                 props.ADD_TODO(selectedTodo)
                 updateSelectedTodo(initialSelectedTodoState)
             }
             else {
-                props.UPDATE_TODO({id: props.id, title : selectedTodo.title});
+                props.UPDATE_TODO({id: selectedTodo.id, title : selectedTodo.title});
+                updateSelectedTodo(initialSelectedTodoState);
                 (document.getElementById('edit_todo_input') as HTMLInputElement).disabled = true;
                 props.updateSelectedTitle('');
-                props.updateId(0)
+                props.updateId(NaN)
             }
+            updateSelectedTodoNewOrNot(false)
         }
-    },[selectedTodo.id])
+    },[selectedTodoNewOrNot])
 
     return (
         <Row>
@@ -55,7 +58,7 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
                     //         props.ADD_TODO({id: props.todos.length + 1, title : toDoTitle, completed : false}) && updateToDoTitle('') : 
                     //         props.UPDATE_TODO({id: props.id, title : toDoTitle}) && (e.target.disabled = true) && props.updateSelectedTitle('') && props.updateId(0)) : 
                     //     console.log(e.key)} 
-                    onInputChange={(text : string, e : Event) => { updateSelectedTodo(selectedTodo => { return {...selectedTodo,title : text}}); updateToDoTitle(text); text.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}>
+                    onInputChange={(text : string, e : Event) => { updateSelectedTodo(selectedTodo => { return {...selectedTodo,title : text}}); text.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}>
                 </Typeahead>
                 <InputGroup>
                     {/* <Input type="text" disabled={props.type === "EDIT" ? true : false} id={props.type === "EDIT" ? "edit_todo_input" : "add_todo_input"} onKeyPress={(e: any) => e.key === 'Enter' && toDoTitle.length >= 5 ? props.type ==="ADD" ? props.ADD_TODO({id: props.todos.length + 1, title : toDoTitle, completed : false}) && updateToDoTitle('') : props.UPDATE_TODO({id: props.id, title : toDoTitle}) && (e.target.disabled = true) && props.updateSelectedTitle('') && props.updateId(0): console.log(e.key)} value={ toDoTitle } onChange={(e) => { updateToDoTitle(e.target.value); e.target.value.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}/> */}
@@ -71,7 +74,7 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
     function handleTypeAheadChange(selectedTodoNodes : todoNodeStructure[]) {
         let todo : any = selectedTodoNodes.pop()
         if(todo?.customOption && todo?.label.length >= 5) {
-            updateSelectedTodo({id: props.todos.length + 1, title : todo?.label, completed : false})
+            updateSelectedTodo({id: props.type === "ADD" ? props.todos.length + 1 : props.id, title : todo?.label, completed : false})
             updateSelectedTodoNewOrNot(true)
         }
         else

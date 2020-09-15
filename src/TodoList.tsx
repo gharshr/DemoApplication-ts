@@ -6,7 +6,7 @@ import InputForTodo from './InputForTodo';
 
 const TodoList = React.memo(function TodoList(props : {todos : todoNodeStructure[]}) {
     const [editedTitle, updateSelectedTitle] = useState('');
-    const [id,updateId] = useState(0);
+    const [id,updateId] = useState(NaN);
 
     return (
         <ListGroup>
