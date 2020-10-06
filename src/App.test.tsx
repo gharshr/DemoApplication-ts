@@ -39,6 +39,13 @@ describe('React component test with Enzyme', () => {
     console.log(wrapper.debug());
   });
 
+  // it('testing the components with enzyme', () => {
+  //   var a = React.createElement('h1',[],['hello'])
+  //   var b = React.createElement('div',[],[a,<TodoList todos={[]}/>]);
+  //   const wrapper = mount(<App todos={[]}/>);
+  //   console.log(wrapper.debug());
+  // })
+
   // async.series([(callback) => 
   it('TodoNode renders without crashing', () => {
     const props: any = {

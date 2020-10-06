@@ -10,8 +10,13 @@ const { reducer, actions } = createSlice({
   name : 'todos',
   initialState : { todos: [{id : 1, title : 'Checkout the Storage', completed : false}, {id: 2, title : 'Check the passwords & Patternise', completed : true}], lastTodoId : 2} as { todos : todoNodeStructure[], lastTodoId : number },
   reducers : {
-    ADD_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : {payload : todoNodeStructure}) => { 
-      state.todos.push(action.payload);
+    INITIALIZE_TODOS : (state : {todos : todoNodeStructure[], lastTodoId : number }, action : { payload : { todos : todoNodeStructure[], lastTodoId : number }}) => {
+      state = action.payload
+      return state;
+    },
+    ADD_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : {payload : { newTodo : todoNodeStructure, lastTodoId : number }}) => { 
+      state.todos.push(action.payload.newTodo);
+      state.lastTodoId = action.payload.lastTodoId
       return state;
     },
     UPDATE_TODO : (state : { todos : todoNodeStructure[], lastTodoId : number }, action : {payload : {id : number, title : string}}) => {
@@ -42,4 +47,4 @@ const { reducer, actions } = createSlice({
 })
 
 export default reducer;
-export const { ADD_TODO, DELETE_TODO, UPDATE_TODO, ACTIVE_ALL, TOGGLE_COMPLETED, DELETE_ALL, COMPLETE_ALL } = actions; 
+export const { INITIALIZE_TODOS, ADD_TODO, DELETE_TODO, UPDATE_TODO, ACTIVE_ALL, TOGGLE_COMPLETED, DELETE_ALL, COMPLETE_ALL } = actions; 

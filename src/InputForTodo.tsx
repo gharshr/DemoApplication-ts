@@ -9,10 +9,12 @@ import { title } from 'process';
 const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
 
     const initialSelectedTodoState : todoNodeStructure = {id: props.id ? props.id : NaN, title : props.editedTitle ? props.editedTitle : '', completed : false};
+    const lengthAlertMessage = 'Length of the field should be greater than 5'
     // const [toDoTitle, updateToDoTitle] = useState(props.editedTitle ? props.editedTitle : '');
     const [alertToDo, toggleToDoAlertVisibility] = useState(false);
     const [selectedTodo, updateSelectedTodo] = useState(initialSelectedTodoState)
     const [selectedTodoNewOrNot, updateSelectedTodoNewOrNot] = useState(false)
+    const [alertMessage, updateAlertMessage] = useState(lengthAlertMessage)
 
     // console.log(toDoTitle)
 
@@ -26,15 +28,43 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
     useEffect(() => {
         if(selectedTodoNewOrNot === true){
             if(props.type == "ADD") {
-                props.ADD_TODO(selectedTodo)
-                updateSelectedTodo(initialSelectedTodoState)
+                fetch('/addTodo',{
+                    method : 'post',
+                    headers : {
+                        'Content-type': 'application/json'
+                    },
+                    body : JSON.stringify(selectedTodo)
+                }).then(res => res.json()).then(data => {
+                    if(data.successfullOrNot) {
+                        props.ADD_TODO({newTodo : selectedTodo, lastTodoId : selectedTodo.id})
+                        updateSelectedTodo(initialSelectedTodoState)
+                    }
+                    else {
+                        updateAlertMessage(data.message)
+                        toggleToDoAlertVisibility(true)
+                    }
+                }).catch(err => console.log('error while making request, err: ',err))
             }
             else {
-                props.UPDATE_TODO({id: selectedTodo.id, title : selectedTodo.title});
-                updateSelectedTodo(initialSelectedTodoState);
-                (document.getElementById('edit_todo_input') as HTMLInputElement).disabled = true;
-                props.updateSelectedTitle('');
-                props.updateId(NaN)
+                fetch('/updateTodo',{
+                    method : 'post',
+                    headers : {
+                        'Content-type': 'application/json'
+                    },
+                    body : JSON.stringify({id: selectedTodo.id, title : selectedTodo.title})
+                }).then(res => res.json()).then(data => {
+                    if(data.successfullOrNot) {
+                        props.UPDATE_TODO({id: selectedTodo.id, title : selectedTodo.title});
+                        updateSelectedTodo(initialSelectedTodoState);
+                        (document.getElementById('edit_todo_input') as HTMLInputElement).disabled = true;
+                        props.updateSelectedTitle('');
+                        props.updateId(NaN)
+                    }
+                    else {
+                        updateAlertMessage(data.message)
+                        toggleToDoAlertVisibility(true)
+                    }
+                }).catch(err => console.log('error while making request, err: ',err))
             }
             updateSelectedTodoNewOrNot(false)
         }
@@ -58,7 +88,7 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
                     //         props.ADD_TODO({id: props.todos.length + 1, title : toDoTitle, completed : false}) && updateToDoTitle('') : 
                     //         props.UPDATE_TODO({id: props.id, title : toDoTitle}) && (e.target.disabled = true) && props.updateSelectedTitle('') && props.updateId(0)) : 
                     //     console.log(e.key)} 
-                    onInputChange={(text : string, e : Event) => { updateSelectedTodo(selectedTodo => { return {...selectedTodo,title : text}}); text.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}>
+                    onInputChange={(text : string, e : Event) => { updateSelectedTodo(selectedTodo => { return {...selectedTodo,title : text}}); alertMessage !== lengthAlertMessage ? updateAlertMessage(lengthAlertMessage) : (() => {})(); text.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}>
                 </Typeahead>
                 <InputGroup>
                     {/* <Input type="text" disabled={props.type === "EDIT" ? true : false} id={props.type === "EDIT" ? "edit_todo_input" : "add_todo_input"} onKeyPress={(e: any) => e.key === 'Enter' && toDoTitle.length >= 5 ? props.type ==="ADD" ? props.ADD_TODO({id: props.todos.length + 1, title : toDoTitle, completed : false}) && updateToDoTitle('') : props.UPDATE_TODO({id: props.id, title : toDoTitle}) && (e.target.disabled = true) && props.updateSelectedTitle('') && props.updateId(0): console.log(e.key)} value={ toDoTitle } onChange={(e) => { updateToDoTitle(e.target.value); e.target.value.length < 5 ? toggleToDoAlertVisibility(true) : toggleToDoAlertVisibility(false)}}/> */}
@@ -66,7 +96,7 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
                 </InputGroup>
             </Col>
             <Col>
-                <Alert isOpen={alertToDo} color="info">Length of the field should be greater than 5</Alert>
+                <Alert isOpen={alertToDo} color="info">{alertMessage}</Alert>
             </Col>
         </Row>
     )
@@ -74,7 +104,7 @@ const InputForTodo = React.memo(function (props : any = {editedTitle : ''}) {
     function handleTypeAheadChange(selectedTodoNodes : todoNodeStructure[]) {
         let todo : any = selectedTodoNodes.pop()
         if(todo?.customOption && todo?.label.length >= 5) {
-            updateSelectedTodo({id: props.type === "ADD" ? props.todos.length + 1 : props.id, title : todo?.label, completed : false})
+            updateSelectedTodo({id: props.type === "ADD" ? props.lastTodoId + 1 : props.id, title : todo?.label, completed : false})
             updateSelectedTodoNewOrNot(true)
         }
         else

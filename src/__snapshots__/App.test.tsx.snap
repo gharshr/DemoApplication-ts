@@ -19,32 +19,68 @@ exports[`React Components test with Jest App Component with Snapshot 1`] = `
       className="col-4"
     >
       <div
-        className="input-group"
+        className="rbt"
+        style={
+          Object {
+            "outline": "none",
+            "position": "relative",
+          }
+        }
+        tabIndex={-1}
       >
-        <input
-          className="form-control"
-          disabled={false}
-          id="add_todo_input"
-          onChange={[Function]}
-          placeholder="What do you want to do?"
-          type="text"
-          value=""
-        />
         <div
-          className="input-group-append"
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "height": "100%",
+              "position": "relative",
+            }
+          }
         >
-          <button
-            aria-label={null}
-            className="btn btn-primary btn-sm disabled"
-            disabled={true}
-            id="todo_add_button"
+          <input
+            aria-autocomplete="both"
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            autoComplete="off"
+            className="rbt-input-main form-control rbt-input"
+            disabled={false}
+            id="add_todo_input"
+            onBlur={[Function]}
+            onChange={[Function]}
             onClick={[Function]}
-            type="button"
-          >
-            Add
-          </button>
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="What do you want to do?"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            readOnly={true}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "left": 0,
+                "pointerEvents": "none",
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+            tabIndex={-1}
+            value=""
+          />
         </div>
       </div>
+      <div
+        className="input-group"
+      />
     </div>
     <div
       className="col"
@@ -60,32 +96,68 @@ exports[`React Components test with Jest App Component with Snapshot 1`] = `
         className="col-4"
       >
         <div
-          className="input-group"
+          className="rbt"
+          style={
+            Object {
+              "outline": "none",
+              "position": "relative",
+            }
+          }
+          tabIndex={-1}
         >
-          <input
-            className="form-control"
-            disabled={true}
-            id="edit_todo_input"
-            onChange={[Function]}
-            placeholder=""
-            type="text"
-            value=""
-          />
           <div
-            className="input-group-append"
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "height": "100%",
+                "position": "relative",
+              }
+            }
           >
-            <button
-              aria-label={null}
-              className="btn btn-primary btn-sm disabled"
+            <input
+              aria-autocomplete="both"
+              aria-expanded={false}
+              aria-haspopup="listbox"
+              autoComplete="off"
+              className="rbt-input-main form-control rbt-input"
               disabled={true}
-              id="edit_todo_button"
+              id="edit_todo_input"
+              onBlur={[Function]}
+              onChange={[Function]}
               onClick={[Function]}
-              type="button"
-            >
-              Save
-            </button>
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder=""
+              role="combobox"
+              type="text"
+              value=""
+            />
+            <input
+              aria-hidden={true}
+              className="rbt-input-hint"
+              readOnly={true}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderColor": "transparent",
+                  "boxShadow": "none",
+                  "color": "rgba(0, 0, 0, 0.35)",
+                  "left": 0,
+                  "pointerEvents": "none",
+                  "position": "absolute",
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+              value=""
+            />
           </div>
         </div>
+        <div
+          className="input-group"
+        />
       </div>
       <div
         className="col"
@@ -202,32 +274,68 @@ exports[`React Components test with Jest InputForTodo Component with Snapshot 1`
     className="col-4"
   >
     <div
-      className="input-group"
+      className="rbt"
+      style={
+        Object {
+          "outline": "none",
+          "position": "relative",
+        }
+      }
+      tabIndex={-1}
     >
-      <input
-        className="form-control"
-        disabled={false}
-        id="edit_todo_input"
-        onChange={[Function]}
-        placeholder=""
-        type="text"
-        value=""
-      />
       <div
-        className="input-group-append"
+        style={
+          Object {
+            "display": "flex",
+            "flex": 1,
+            "height": "100%",
+            "position": "relative",
+          }
+        }
       >
-        <button
-          aria-label={null}
-          className="btn btn-primary btn-sm disabled"
-          disabled={true}
-          id="edit_todo_button"
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          className="rbt-input-main form-control rbt-input"
+          disabled={false}
+          id="add_todo_input"
+          onBlur={[Function]}
+          onChange={[Function]}
           onClick={[Function]}
-          type="button"
-        >
-          Save
-        </button>
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          role="combobox"
+          type="text"
+          value=""
+        />
+        <input
+          aria-hidden={true}
+          className="rbt-input-hint"
+          readOnly={true}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "boxShadow": "none",
+              "color": "rgba(0, 0, 0, 0.35)",
+              "left": 0,
+              "pointerEvents": "none",
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+          tabIndex={-1}
+          value=""
+        />
       </div>
     </div>
+    <div
+      className="input-group"
+    />
   </div>
   <div
     className="col"
@@ -246,32 +354,68 @@ exports[`React Components test with Jest TodoList Component with Snapshot 1`] = 
       className="col-4"
     >
       <div
-        className="input-group"
+        className="rbt"
+        style={
+          Object {
+            "outline": "none",
+            "position": "relative",
+          }
+        }
+        tabIndex={-1}
       >
-        <input
-          className="form-control"
-          disabled={true}
-          id="edit_todo_input"
-          onChange={[Function]}
-          placeholder=""
-          type="text"
-          value=""
-        />
         <div
-          className="input-group-append"
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "height": "100%",
+              "position": "relative",
+            }
+          }
         >
-          <button
-            aria-label={null}
-            className="btn btn-primary btn-sm disabled"
+          <input
+            aria-autocomplete="both"
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            autoComplete="off"
+            className="rbt-input-main form-control rbt-input"
             disabled={true}
-            id="edit_todo_button"
+            id="edit_todo_input"
+            onBlur={[Function]}
+            onChange={[Function]}
             onClick={[Function]}
-            type="button"
-          >
-            Save
-          </button>
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            readOnly={true}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "left": 0,
+                "pointerEvents": "none",
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+            tabIndex={-1}
+            value=""
+          />
         </div>
       </div>
+      <div
+        className="input-group"
+      />
     </div>
     <div
       className="col"
